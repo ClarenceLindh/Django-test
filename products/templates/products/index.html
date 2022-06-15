@@ -1,0 +1,8 @@
+
+{% if latest_product_list %}
+    {% for product in latest_product_list %}
+        <li>{{ product.name }} - {{ product.price }} kr</li>
+    {% endfor %}
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
