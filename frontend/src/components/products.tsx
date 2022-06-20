@@ -15,22 +15,26 @@ class products extends Component<myProps> {
     const { products } = this.props.products;
     console.log(products);
 
-    return (
-      <div>
-        {products.results.map(
-          (p: {
-            id: React.Key | null | undefined;
-            name: string;
-            price: number;
-          }) => (
-            <React.Fragment key={p.id}>
-              <h3>{p.name}</h3>
-              <h4>{p.price} kr</h4>
-            </React.Fragment>
-          )
-        )}
-      </div>
-    );
+    if (products.length === 0) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          {products.results.map(
+            (p: {
+              id: React.Key | null | undefined;
+              name: string;
+              price: number;
+            }) => (
+              <div key={p.id} className="Product">
+                <h3>{p.name}</h3>
+                <h4>{p.price} kr</h4>
+              </div>
+            )
+          )}
+        </div>
+      );
+    }
   }
 }
 
