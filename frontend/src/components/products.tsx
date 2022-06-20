@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { getProducts } from "../store/actions/productsActions";
 
-interface myProps { products: any; getProducts: any; }
+interface myProps {
+  products: any;
+  getProducts: any;
+}
 
 class products extends Component<myProps> {
   componentDidMount() {
@@ -14,10 +17,17 @@ class products extends Component<myProps> {
 
     return (
       <div>
-        {products.map((p: { id: React.Key | null | undefined; name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => 
-          <React.Fragment key={p.id}>
-            <h1>{p.name}</h1>
-          </React.Fragment>
+        {products.results.map(
+          (p: {
+            id: React.Key | null | undefined;
+            name: string;
+            price: number;
+          }) => (
+            <React.Fragment key={p.id}>
+              <h3>{p.name}</h3>
+              <h4>{p.price} kr</h4>
+            </React.Fragment>
+          )
         )}
       </div>
     );
