@@ -1,15 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
-import Products from './components/products';
-import './App.css';
+// import Products from './components/products';
+// import AddProduct from "./components/AddProduct";
+import Products from "./features/products/Products";
+import "./style/App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>App page</h1>
-        <Products />
+        <h1>Products n priceZz</h1>
       </header>
+      {/* <AddProduct /> */}
+      <Products />
     </div>
   );
 }

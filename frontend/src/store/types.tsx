@@ -1,3 +1,0 @@
-export const GET_PRODUCTS = 'GET_PRODUCTS'
-export const SET_PRODUCT = 'SET_PRODUCT'
-export const PRODUCTS_ERROR = 'PRODUCTS_ERROR'
