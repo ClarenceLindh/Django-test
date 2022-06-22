@@ -36,9 +36,9 @@ export const productsSlice = createSlice({
       postProduct(action.payload)
       state.products = [...state.products, action.payload].sort();
     },
-    deleteProduct: (action) => {
-      // deleteProduct(action.payload)
-    }
+    // deleteProduct: (action) => {
+    //   deleteProduct(action.payload)
+    // }
   },
   extraReducers: (builder) => {
     builder
