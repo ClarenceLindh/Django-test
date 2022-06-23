@@ -8,7 +8,7 @@ export async function getAllProducts() {
         auth: { username: "admin", password: "Haha!123" },
       })
       .then((response) => {
-        console.log(response.data.results);
+        console.log("Response ", response.data.results);
         return response.data.results;
       });
     return res;
@@ -40,12 +40,9 @@ export async function postProduct(product: Product) {
 export async function deleteProduct(id: number) {
   try {
     const res = await axios
-      .delete(
-        "http://127.0.0.1:8000/products/api/" + id,
-        {
-          auth: { username: "admin", password: "Haha!123" },
-        }
-      )
+      .delete("http://127.0.0.1:8000/products/api/" + id, {
+        auth: { username: "admin", password: "Haha!123" },
+      })
       .then((response) => {
         console.log("deleteProduct", response);
         return response;
@@ -53,5 +50,21 @@ export async function deleteProduct(id: number) {
     return res;
   } catch (error) {
     console.log(error);
+  }
+}
+
+export async function updateProduct(product: Product) {
+  try{
+    const res = await axios
+    .put("http://127.0.0.1:8000/products/api/" + product, {
+      auth: { username: "admin", password: "Haha!123" },
+    })
+    .then((response) => {
+      console.log("updateProduct", response);
+      return response;
+    })
+    return res;
+  } catch (error) {
+
   }
 }

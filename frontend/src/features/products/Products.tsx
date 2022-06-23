@@ -1,8 +1,17 @@
-import React, { useEffect, useId, useState } from "react";
+import { SyntheticEvent, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { addProduct, fetchProducts, selectProducts } from "./productsSlice";
-import { getAllProducts } from "./productsAPI";
-import { PostProduct } from "./PostProduct";
+import { deleteProductReducer, fetchProducts } from "./productsSlice";
+import PostProduct from "./PostProduct";
+import DeleteProduct from "./DeleteProduct";
+import UpdateProduct from "./UpdateProduct";
+
+export interface ProductObject {
+  product: {
+    id: number;
+    name: string;
+    price: number;
+  };
+}
 
 function Products() {
   const products = useAppSelector((state) => state.products.products);
@@ -13,9 +22,9 @@ function Products() {
     if (status === "idle") {
       dispatch(fetchProducts());
     }
-  }, []);
+  }, [dispatch]);
 
-  const ProductCard = (product: any) => {
+  const ProductCard = (product: ProductObject) => {
     return (
       <div>
         <h3>{product.product.name}</h3>
@@ -24,24 +33,20 @@ function Products() {
     );
   };
 
-  const DeleteProduct = () => {
-    return <button className="Delete-Button">x</button>;
-  };
+  // const handleDelete = (product: ProductObject) => {
+  //   dispatch(deleteProductReducer(product));
+  //   console.log("handleDelete", product)
+  // };
 
   return (
     <div>
-      {/* <input type="text" onSubmit={
-        (e) => {
-          e.preventDefault()
-          dispatch(setProduct(e.target.value))
-        }
-      }/> */}
       <PostProduct />
       <ul className="Products">
         {products.map((product: any, index) => (
           <li className="Product" key={index}>
             <ProductCard product={product} />
-            <DeleteProduct />
+            <DeleteProduct product={product} />
+            <UpdateProduct product={product} />
           </li>
         ))}
       </ul>

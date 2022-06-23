@@ -1,30 +1,29 @@
-import { useId, useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { addProduct, Product } from "./productsSlice";
+import { addProductReducer } from "./productsSlice";
 
 export const PostProduct = () => {
   const dispatch = useAppDispatch();
   
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
-  const id = useId();
 
-  const handleSubmit = (e: any) => {
+  // Fix any type
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    dispatch(addProduct({
+    dispatch(addProductReducer({
       name: productName,
       price: productPrice
     }))
     console.log(productName, productPrice);
-    console.log(e);
   }
 
-  const handleNameChange = (e: any) => {
+  const handleNameChange = (e: string) => {
     console.log(e);
     setProductName(e);
   }
 
-  const handlePriceChange = (e: any) => {
+  const handlePriceChange = (e: string) => {
     console.log(e);
     setProductPrice(e);
   }
@@ -49,3 +48,5 @@ export const PostProduct = () => {
     </form>
   );
 };
+
+export default PostProduct;
