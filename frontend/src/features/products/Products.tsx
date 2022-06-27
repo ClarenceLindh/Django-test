@@ -1,7 +1,6 @@
 import { SyntheticEvent, useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { deleteProductReducer, fetchProducts } from "./productsSlice";
-import PostProduct from "./PostProduct";
 import DeleteProduct from "./DeleteProduct";
 import UpdateProduct from "./UpdateProduct";
 
@@ -33,14 +32,8 @@ function Products() {
     );
   };
 
-  // const handleDelete = (product: ProductObject) => {
-  //   dispatch(deleteProductReducer(product));
-  //   console.log("handleDelete", product)
-  // };
-
   return (
     <div>
-      <PostProduct />
       <ul className="Products">
         {products.map((product: any, index) => (
           <li className="Product" key={index}>

@@ -5,6 +5,7 @@ import Products from "./Products";
 import { deleteProduct, getAllProducts, postProduct, updateProduct } from "./productsAPI";
 
 export interface Product {
+  product: any;
   id: number;
   name: string;
   price: number;
@@ -40,13 +41,14 @@ export const productsSlice = createSlice({
     },
     deleteProductReducer: (state, action) => {
       deleteProduct(action.payload.id);
-      state.products = [...state.products.filter(i => i.id !== action.payload.id)];
+      state.products = [...state.products.filter(i => i.id !== action.payload.id)];  // fix filter only if response is ok
       console.log(state);
       console.log(action);
     },
     updateProductReducer: (state, action) => {
       console.log("updateProduct", action.payload);
       updateProduct(action.payload);
+      state.products = [...state.products.filter(i => i.id !== action.payload.id)];
 
     },
   },
@@ -65,7 +67,7 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { addProductReducer, deleteProductReducer } =
+export const { updateProductReducer, addProductReducer, deleteProductReducer } =
   productsSlice.actions;
 
 export const selectProducts = (state: RootState) => state.products;

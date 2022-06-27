@@ -54,9 +54,10 @@ export async function deleteProduct(id: number) {
 }
 
 export async function updateProduct(product: Product) {
+  console.log("fromapi", product)
   try{
     const res = await axios
-    .put("http://127.0.0.1:8000/products/api/" + product, {
+    .put("http://127.0.0.1:8000/products/api/" + product.id, {id: product.id, name: product.name, price: product.price}, {
       auth: { username: "admin", password: "Haha!123" },
     })
     .then((response) => {

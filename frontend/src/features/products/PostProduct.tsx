@@ -8,7 +8,6 @@ export const PostProduct = () => {
   const [productName, setProductName] = useState("");
   const [productPrice, setProductPrice] = useState("");
 
-  // Fix any type
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(addProductReducer({
