@@ -1,5 +1,5 @@
 import PostProduct from "./features/products/PostProduct";
-import Products from "./features/products/Products";
+import ListProducts from "./features/products/ListProducts";
 import "./style/App.css";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
         <h1>Some Store</h1>
       </header>
       <PostProduct />
-      <Products />
+      <ListProducts />
     </div>
   );
 }

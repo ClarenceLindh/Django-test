@@ -1,9 +1,9 @@
 import { SyntheticEvent, useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
 import { deleteProductReducer } from "./productsSlice";
-import { ProductObject } from "./Products"
+import { ProductObject } from "./ListProducts"
 
-function DeleteProduct(product: ProductObject, ProductObject: ProductObject) {
+const DeleteProduct = (product: ProductObject, ProductObject: ProductObject) => {
   const dispatch = useAppDispatch();
 
   const handleDelete = (product: ProductObject) => {

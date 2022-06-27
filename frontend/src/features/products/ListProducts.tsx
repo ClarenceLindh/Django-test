@@ -1,4 +1,4 @@
-import { SyntheticEvent, useEffect } from "react";
+import { SyntheticEvent, useEffect, useState } from "react";
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { deleteProductReducer, fetchProducts } from "./productsSlice";
 import DeleteProduct from "./DeleteProduct";
@@ -12,7 +12,7 @@ export interface ProductObject {
   };
 }
 
-function Products() {
+const ListProducts = () => {
   const products = useAppSelector((state) => state.products.products);
   const dispatch = useAppDispatch();
   const status = useAppSelector((state) => state.products.status);
@@ -21,7 +21,7 @@ function Products() {
     if (status === "idle") {
       dispatch(fetchProducts());
     }
-  }, [dispatch]);
+  }, []);
 
   const ProductCard = (product: ProductObject) => {
     return (
@@ -47,4 +47,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default ListProducts;

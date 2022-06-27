@@ -1,9 +1,9 @@
 import React, { SyntheticEvent, useState } from "react";
 import { useAppDispatch } from "../../app/hooks";
-import { ProductObject } from "./Products";
+import { ProductObject } from "./ListProducts";
 import { updateProductReducer } from "./productsSlice";
 
-function UpdateProduct(product: ProductObject) {
+const UpdateProduct = (product: ProductObject)  => {
   const dispatch = useAppDispatch();
 
   const [productName, setProductName] = useState("");
@@ -23,8 +23,8 @@ function UpdateProduct(product: ProductObject) {
         setErrorMessage("")
         console.log(product.product);
       }
-    else{
-      setErrorMessage("Cannot update with empty values...")
+    else {
+      setErrorMessage("Fill in name and price")
     } 
   };
 
