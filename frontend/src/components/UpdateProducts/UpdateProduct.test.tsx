@@ -1,8 +1,8 @@
 import { getByText, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
-import { store } from "../../../store/store";
-import UpdateProduct from "../UpdateProduct";
+import { store } from "../../store/store";
+import UpdateProduct from "./UpdateProduct";
 
 describe('Update poducts', () => {
   test('check if "Edit" button is rendered', () => {

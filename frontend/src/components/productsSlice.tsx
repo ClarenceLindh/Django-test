@@ -9,6 +9,14 @@ export interface Product {
   price: number;
 }
 
+export interface ProductObject {
+  product: {
+    id: number;
+    name: string;
+    price: number;
+  };
+}
+
 interface ProductsState {
   products: Product[];
   status: "idle" | "loading" | "failed";
@@ -35,11 +43,11 @@ export const productsSlice = createSlice({
       postProduct(action.payload);
       state.products = [...state.products, action.payload];
       fetchProducts();
-      console.log("addProductReducer", state.products); // fix so that new items get an id right away
+      console.log("addProductReducer", state.products);
     },
     deleteProductReducer: (state, action) => {
       deleteProduct(action.payload.id);
-      state.products = [...state.products.filter(i => i.id !== action.payload.id)];  // fix filter only if response is ok
+      state.products = [...state.products.filter(i => i.id !== action.payload.id)];
       console.log(state);
       console.log(action);
     },

@@ -1,6 +1,5 @@
 import { useAppDispatch } from "../../store/hooks";
-import { deleteProductReducer } from "../productsSlice";
-import { ProductObject } from "../ListProducts/ListProducts"
+import { deleteProductReducer, ProductObject } from "../productsSlice";
 
 const DeleteProduct = (product: ProductObject, ProductObject: ProductObject) => {
   const dispatch = useAppDispatch();

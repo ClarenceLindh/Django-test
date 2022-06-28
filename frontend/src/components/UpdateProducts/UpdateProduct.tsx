@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
-import { ProductObject } from "../ListProducts/ListProducts";
-import { updateProductReducer } from "../productsSlice";
+import { updateProductReducer, ProductObject } from "../productsSlice";
 
 const UpdateProduct = (product: ProductObject)  => {
   const dispatch = useAppDispatch();

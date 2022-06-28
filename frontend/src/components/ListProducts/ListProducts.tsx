@@ -1,16 +1,9 @@
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { fetchProducts } from "../productsSlice";
+import { fetchProducts, ProductObject } from "../productsSlice";
 import DeleteProduct from "../DeleteProduct/DeleteProduct";
 import UpdateProduct from "../UpdateProducts/UpdateProduct";
 
-export interface ProductObject {
-  product: {
-    id: number;
-    name: string;
-    price: number;
-  };
-}
 
 const ListProducts = () => {
   const products = useAppSelector((state) => state.products.products);
@@ -23,7 +16,7 @@ const ListProducts = () => {
     }
   }, []);
 
-  const ProductCard = (product: ProductObject) => {
+  const ProductCardInfo = (product: ProductObject) => {
     return (
       <div>
         <h3>{product.product.name}</h3>
@@ -37,7 +30,7 @@ const ListProducts = () => {
       <ul className="Products">
         {products.map((product: any, index) => (
           <li className="Product" key={index}>
-            <ProductCard product={product} />
+            <ProductCardInfo product={product} />
             <DeleteProduct product={product} />
             <UpdateProduct product={product} />
           </li>

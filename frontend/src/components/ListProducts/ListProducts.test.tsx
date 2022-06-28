@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { store } from "../../../store/store";
-import ListProducts from "../ListProducts";
+import { store } from "../../store/store";
+import ListProducts from "./ListProducts";
 
 describe("List poducts", () => {
   test('something', async () => {

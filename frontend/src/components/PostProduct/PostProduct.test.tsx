@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react"
 import { Provider } from "react-redux"
-import { store } from "../../../store/store";
-import PostProduct from "../PostProduct"
+import { store } from "../../store/store";
+import PostProduct from "./PostProduct"
 
 describe('Update poducts', () => {
   
