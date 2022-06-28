@@ -35,6 +35,7 @@ export const PostProduct = () => {
         placeholder="Product name..."
         required={true}
         onChange={(e) => handleNameChange(e.target.value)}
+        defaultValue="test"
       />
       <input
         className="Input"
