@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { fetchProducts } from "./productsSlice";
-import DeleteProduct from "./DeleteProduct";
-import UpdateProduct from "./UpdateProduct";
+import { fetchProducts } from "../productsSlice";
+import DeleteProduct from "../DeleteProduct/DeleteProduct";
+import UpdateProduct from "../UpdateProducts/UpdateProduct";
 
 export interface ProductObject {
   product: {

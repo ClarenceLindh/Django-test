@@ -1,6 +1,6 @@
 import { SyntheticEvent, useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
-import { addProductReducer } from "./productsSlice";
+import { addProductReducer } from "../productsSlice";
 
 export const PostProduct = () => {
   const dispatch = useAppDispatch();

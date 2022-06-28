@@ -1,5 +1,5 @@
-import PostProduct from "./features/products/PostProduct";
-import ListProducts from "./features/products/ListProducts";
+import PostProduct from "./components/PostProduct/PostProduct";
+import ListProducts from "./components/ListProducts/ListProducts";
 import "./style/App.css";
 
 function App() {
