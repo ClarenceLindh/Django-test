@@ -1,5 +1,5 @@
 import axios from "axios";
-import productsSlice, { Product } from "./productsSlice";
+import { Product } from "../features/products/productsSlice";
 
 export async function getAllProducts() {
   try {

@@ -1,8 +1,6 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import React from "react";
-import { RootState } from "../../app/store";
-import ListProducts from "./ListProducts";
-import { deleteProduct, getAllProducts, postProduct, updateProduct } from "./productsAPI";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { RootState } from "../../store/store";
+import { deleteProduct, getAllProducts, postProduct, updateProduct } from "../../API/productsAPI";
 
 export interface Product {
   product: any;

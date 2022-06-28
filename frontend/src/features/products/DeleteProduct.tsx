@@ -1,5 +1,4 @@
-import { SyntheticEvent, useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import { deleteProductReducer } from "./productsSlice";
 import { ProductObject } from "./ListProducts"
 

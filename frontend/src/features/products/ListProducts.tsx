@@ -1,6 +1,6 @@
-import { SyntheticEvent, useEffect, useState } from "react";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { deleteProductReducer, fetchProducts } from "./productsSlice";
+import { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { fetchProducts } from "./productsSlice";
 import DeleteProduct from "./DeleteProduct";
 import UpdateProduct from "./UpdateProduct";
 
@@ -27,7 +27,7 @@ const ListProducts = () => {
     return (
       <div>
         <h3>{product.product.name}</h3>
-        <h4>{product.product.price.toLocaleString()} kr</h4>
+        <h4>{product.product.price} kr</h4>
       </div>
     );
   };

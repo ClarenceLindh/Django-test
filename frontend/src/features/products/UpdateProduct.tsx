@@ -1,5 +1,5 @@
-import React, { SyntheticEvent, useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
+import { useState } from "react";
+import { useAppDispatch } from "../../store/hooks";
 import { ProductObject } from "./ListProducts";
 import { updateProductReducer } from "./productsSlice";
 
@@ -7,7 +7,7 @@ const UpdateProduct = (product: ProductObject)  => {
   const dispatch = useAppDispatch();
 
   const [productName, setProductName] = useState("");
-  const [productPrice, setProductPrice] = useState("");
+  const [productPrice, setProductPrice] = useState(0);
   const [updateStatus, setUpdateStatus] = useState(false);
   const [errorMessage, setErrorMessage] = useState("")
 
@@ -30,6 +30,8 @@ const UpdateProduct = (product: ProductObject)  => {
 
   const toggleUpdate = () => {
     setUpdateStatus(!updateStatus);
+    setProductName(product.product.name);
+    setProductPrice(product.product.price);
   };
 
   const handleNameChange = (e: string) => {
@@ -37,7 +39,7 @@ const UpdateProduct = (product: ProductObject)  => {
     setProductName(e);
   };
 
-  const handlePriceChange = (e: string) => {
+  const handlePriceChange = (e: number) => {
     console.log(e);
     setProductPrice(e);
   };
@@ -49,20 +51,21 @@ const UpdateProduct = (product: ProductObject)  => {
       </button>
       {updateStatus && (
         <div>
+          New values:
           <form>
             <input
               className="Input"
               type="text"
-              placeholder="New name..."
+              value={productName}
               required={true}
               onChange={(e) => handleNameChange(e.target.value)}
             />
             <input
               className="Input"
-              type="text"
-              placeholder="New price..."
+              type="number"
+              value={productPrice}
               required={true}
-              onChange={(e) => handlePriceChange(e.target.value)}
+              onChange={(e) => handlePriceChange(e.target.valueAsNumber)}
             />
           </form>
           <button className="Button" onClick={handleUpdateSubmit}>

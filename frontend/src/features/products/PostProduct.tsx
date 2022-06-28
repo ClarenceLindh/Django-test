@@ -1,5 +1,5 @@
 import { SyntheticEvent, useState } from "react";
-import { useAppDispatch } from "../../app/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import { addProductReducer } from "./productsSlice";
 
 export const PostProduct = () => {
@@ -39,7 +39,7 @@ export const PostProduct = () => {
       <input
         className="Input"
         type="number"
-        placeholder="Price..."
+        placeholder="Product price..."
         required={true}
         onChange={(e) => handlePriceChange(e.target.value)}
       />

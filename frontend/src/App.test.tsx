@@ -1,16 +1,17 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+import { store } from './store/store';
 import App from './App';
 
-test('renders headline some store', () => {
-  const { getByText } = render(
-    <Provider store={store}>
-      <App />
-    </Provider>
-  );
-
-  // eslint-disable-next-line testing-library/prefer-screen-queries
-  expect(getByText(/some store/i)).toBeInTheDocument();
+describe('App component', () => {
+  test('check if header "Some Store" exists', () => {
+    render(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    const buttonElement = screen.getByRole("heading", { name: /some store/i });
+    expect(buttonElement).toBeInTheDocument();
+  });
 });
