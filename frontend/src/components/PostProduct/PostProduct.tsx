@@ -35,7 +35,7 @@ export const PostProduct = () => {
         placeholder="Product name..."
         required={true}
         onChange={(e) => handleNameChange(e.target.value)}
-        defaultValue="test"
+        value={productName}
       />
       <input
         className="Input"
@@ -43,6 +43,7 @@ export const PostProduct = () => {
         placeholder="Product price..."
         required={true}
         onChange={(e) => handlePriceChange(e.target.value)}
+        value={productPrice}
       />
       <button className="Button" onSubmit={handleSubmit}>Add</button>
     </form>
