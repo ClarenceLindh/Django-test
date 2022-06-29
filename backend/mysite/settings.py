@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
     'products.apps.ProductsConfig',
     'rest_framework',
     'corsheaders',
