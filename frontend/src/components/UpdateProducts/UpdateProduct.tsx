@@ -20,7 +20,6 @@ const UpdateProduct = (product: ProductObject)  => {
         })
         );
         setErrorMessage("")
-        console.log(product.product);
       }
     else {
       setErrorMessage("Fill in name and price")
@@ -34,12 +33,10 @@ const UpdateProduct = (product: ProductObject)  => {
   };
 
   const handleNameChange = (e: string) => {
-    console.log(e);
     setProductName(e);
   };
 
   const handlePriceChange = (e: number) => {
-    console.log(e);
     setProductPrice(e);
   };
 
@@ -53,14 +50,14 @@ const UpdateProduct = (product: ProductObject)  => {
           New values:
           <form>
             <input
-              className="Input"
+              className="Input Name"
               type="text"
               value={productName}
               required={true}
               onChange={(e) => handleNameChange(e.target.value)}
             />
             <input
-              className="Input"
+              className="Input Price"
               type="number"
               value={productPrice}
               required={true}

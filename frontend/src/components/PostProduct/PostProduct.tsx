@@ -14,16 +14,13 @@ export const PostProduct = () => {
       name: productName,
       price: productPrice
     }))
-    console.log(productName, productPrice);
   }
 
   const handleNameChange = (e: string) => {
-    console.log(e);
     setProductName(e);
   }
 
   const handlePriceChange = (e: string) => {
-    console.log(e);
     setProductPrice(e);
   }
 

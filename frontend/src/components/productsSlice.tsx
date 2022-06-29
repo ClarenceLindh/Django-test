@@ -43,16 +43,12 @@ export const productsSlice = createSlice({
       postProduct(action.payload);
       state.products = [...state.products, action.payload];
       fetchProducts();
-      console.log("addProductReducer", state.products);
     },
     deleteProductReducer: (state, action) => {
       deleteProduct(action.payload.id);
       state.products = [...state.products.filter(i => i.id !== action.payload.id)];
-      console.log(state);
-      console.log(action);
     },
     updateProductReducer: (state, action) => {
-      console.log("updateProduct", action.payload);
       updateProduct(action.payload);
       state.products = [...state.products.filter(i => i.id !== action.payload.id)];
 

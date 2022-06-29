@@ -6,7 +6,6 @@ const DeleteProduct = (product: ProductObject, ProductObject: ProductObject) => 
 
   const handleDelete = (product: ProductObject) => {
     dispatch(deleteProductReducer(product.product));
-    console.log("handleDelete", product.product)
   };
 
   return <button className="Delete-Button" onClick={() => handleDelete(product)}>X</button>;
