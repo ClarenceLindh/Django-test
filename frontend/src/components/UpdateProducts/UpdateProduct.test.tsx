@@ -4,7 +4,7 @@ import { store } from "../../store/store";
 import UpdateProduct from "./UpdateProduct";
 
 describe('Update poducts', () => {
-  test('check if "Edit" button is rendered', () => {
+  it('checks if "Edit" button is rendered', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{
@@ -18,7 +18,7 @@ describe('Update poducts', () => {
     expect(buttonElement).toBeInTheDocument();
   });
 
-  test('check if "New values" text is rendered after clicking the "Edit" button', () => {
+  it('checks if "New values" text is rendered after clicking the "Edit" button', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{
@@ -34,7 +34,7 @@ describe('Update poducts', () => {
     expect(buttonElement).toBeInTheDocument();
   });
 
-  test('check that "Submit" button is not rendered if "Edit" button is not clicked', () => {
+  it('checks that "Submit" button is not rendered if "Edit" button is not clicked', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{
@@ -48,7 +48,7 @@ describe('Update poducts', () => {
     expect(buttonElement).not.toBeInTheDocument();
   });
   
-  test('check that "Submit" button is rendered if "Edit" button is clicked', () => {
+  it('checks that "Submit" button is rendered if "Edit" button is clicked', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{
@@ -64,7 +64,7 @@ describe('Update poducts', () => {
     expect(buttonElement).toBeInTheDocument();
   });
   
-  test('check that input value is changed when submiting name change', () => {
+  it('checks that input value is changed when submiting name change', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{
@@ -83,7 +83,7 @@ describe('Update poducts', () => {
     expect(inputElement.value).toBe("New name");
   });
 
-  test('check that input value is changed when submiting price change', () => {
+  it('checks that input value is changed when submiting price change', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{
@@ -102,7 +102,7 @@ describe('Update poducts', () => {
     expect(inputElement.value).toBe("321");
   });
 
-  test('check that error message is displayed when submitting with empty input product name', () => {
+  it('checks that error message is displayed when submitting with empty input product name', () => {
     render(
       <Provider store={store}>
         <UpdateProduct product={{

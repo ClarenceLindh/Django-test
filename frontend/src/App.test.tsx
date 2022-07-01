@@ -4,7 +4,7 @@ import { store } from './store/store';
 import App from './App';
 
 describe('App component', () => {
-  test('check if header "Some Store" exists', () => {
+  it('checks if header "Some Store" exists', () => {
     render(
       <Provider store={store}>
         <App />

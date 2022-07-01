@@ -3,7 +3,6 @@ import { RootState } from "../store/store";
 import { deleteProduct, getAllProducts, postProduct, updateProduct } from "../API/productsAPI";
 
 export interface Product {
-  product: any;
   id: number;
   name: string;
   price: number;

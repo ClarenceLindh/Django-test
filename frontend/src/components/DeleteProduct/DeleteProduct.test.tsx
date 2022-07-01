@@ -4,7 +4,7 @@ import { store } from "../../store/store";
 import DeleteProduct from "./DeleteProduct";
 
 describe("Delete poducts", () => {
-  test('check if "delete" button is rendered', async () => {
+  it('checks if "delete" button is rendered', async () => {
     render(
       <Provider store={store}>
         <DeleteProduct product={{

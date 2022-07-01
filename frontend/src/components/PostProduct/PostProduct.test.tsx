@@ -5,7 +5,7 @@ import PostProduct from "./PostProduct"
 
 describe('Update poducts', () => {
   
-  test('check if input element with placeholder "Product name" is rendered', () => {
+  it('checks if input element with placeholder "Product name" is rendered', () => {
     render(
       <Provider store={store}>
         <PostProduct />
@@ -15,7 +15,7 @@ describe('Update poducts', () => {
     expect(inputElement).toBeInTheDocument();
   });
   
-  test('check if input element with placeholder "Product price" is rendered', () => {
+  it('checks if input element with placeholder "Product price" is rendered', () => {
     render(
       <Provider store={store}>
         <PostProduct />
@@ -25,7 +25,7 @@ describe('Update poducts', () => {
     expect(inputElement).toBeInTheDocument();
   });
   
-  test('check if "Add" button is rendered', () => {
+  it('checks if "Add" button is rendered', () => {
     render(
       <Provider store={store}>
         <PostProduct />
@@ -35,7 +35,7 @@ describe('Update poducts', () => {
     expect(buttonElement).toBeInTheDocument();
   });
   
-  test('check if "Product name" input renders with user input', () => {
+  it('checks if "Product name" input renders with user input', () => {
     render(
       <Provider store={store}>
         <PostProduct />
@@ -47,7 +47,7 @@ describe('Update poducts', () => {
     expect(inputElement.value).toBe("Test product name");
   });
   
-  test('check if "Product price" input renders with user input', () => {
+  it('checks if "Product price" input renders with user input', () => {
     render(
       <Provider store={store}>
         <PostProduct />
@@ -59,7 +59,7 @@ describe('Update poducts', () => {
     expect(inputElement.value).toBe("150");
   });
 
-  test('check that "Product price" input only accepts numbers', () => {
+  it('checks that "Product price" input does not accept strings', () => {
     render(
       <Provider store={store}>
         <PostProduct />
@@ -69,6 +69,18 @@ describe('Update poducts', () => {
     const inputElement = screen.getByPlaceholderText(/product price/i) as HTMLInputElement
     fireEvent.change(inputElement, {target: { value: "Test price"}})
     expect(inputElement.value).not.toBe("Test price");
+  });
+
+  it('checks that "Product price" input accepts number and returns string', () => {
+    render(
+      <Provider store={store}>
+        <PostProduct />
+      </Provider>
+    );
+    
+    const inputElement = screen.getByPlaceholderText(/product price/i) as HTMLInputElement
+    fireEvent.change(inputElement, {target: { value: 123}})
+    expect(inputElement.value).toBe("123");
   });
 
 });
