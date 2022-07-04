@@ -9,5 +9,5 @@
 #   def test_product_names(self):
 #     testProduct1 = Product.object.get(id=1)
 #     testProduct2 = Product.object.get(id=2)
-#     self.assertEqual(testProduct1.speak(), 'This is 1')
+#     self.assertEqual(str(testProduct1), 'This is 1')
 #     self.assertEqual(testProduct2.speak(), 'This is 2')
