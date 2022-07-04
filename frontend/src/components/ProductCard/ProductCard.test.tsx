@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 import { store } from "../../store/store";
 import ProductCard from "./ProductCard";
 
-
 describe('Product card', () => {
   
   it('checks if product name is rendered', () => {
