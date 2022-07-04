@@ -1,11 +1,9 @@
-import { render, screen } from "@testing-library/react"
-import { Provider } from "react-redux"
+import { render, screen } from "@testing-library/react";
+import { Provider } from "react-redux";
 import { store } from "../../store/store";
-import ProductCard from "./ProductCard"
+import ProductCard from "./ProductCard";
 
-describe('Update poducts', () => {
-  
-
+describe('Product card', () => {
   
   it('checks if product name is rendered', () => {
     render(

@@ -11,7 +11,7 @@ describe('Update poducts', () => {
         <PostProduct />
       </Provider>
     );
-    const inputElement = screen.getByPlaceholderText(/product name/i)
+    const inputElement = screen.getByPlaceholderText(/product name/i);
     expect(inputElement).toBeInTheDocument();
   });
   
@@ -21,7 +21,7 @@ describe('Update poducts', () => {
         <PostProduct />
       </Provider>
     );
-    const inputElement = screen.getByPlaceholderText(/product price/i)
+    const inputElement = screen.getByPlaceholderText(/product price/i);
     expect(inputElement).toBeInTheDocument();
   });
   
@@ -43,7 +43,7 @@ describe('Update poducts', () => {
     );
     
     const inputElement = screen.getByPlaceholderText(/product name/i) as HTMLInputElement
-    fireEvent.change(inputElement, {target: { value: "Test product name"}})
+    fireEvent.change(inputElement, {target: { value: "Test product name"}});
     expect(inputElement.value).toBe("Test product name");
   });
   
@@ -67,20 +67,32 @@ describe('Update poducts', () => {
     );
     
     const inputElement = screen.getByPlaceholderText(/product price/i) as HTMLInputElement
-    fireEvent.change(inputElement, {target: { value: "Test price"}})
+    fireEvent.change(inputElement, {target: { value: "Test price"}});
     expect(inputElement.value).not.toBe("Test price");
   });
 
-  it('checks that "Product price" input accepts number and returns string', () => {
-    render(
-      <Provider store={store}>
-        <PostProduct />
-      </Provider>
-    );
+  // it('should prevent default action on submit', () => {
+  //   render(
+  //     <Provider store={store}>
+  //       <PostProduct />
+  //     </Provider>
+  //   );
     
-    const inputElement = screen.getByPlaceholderText(/product price/i) as HTMLInputElement
-    fireEvent.change(inputElement, {target: { value: 123}})
-    expect(inputElement.value).toBe("123");
-  });
+  //   const inputElement = screen.getByPlaceholderText(/product price/i) as HTMLInputElement
+  //   fireEvent.change(inputElement, {target: { value: 123}})
+  //   expect(inputElement.value).toBe("123");
+
+  //   const inputElement2 = screen.getByPlaceholderText(/product name/i) as HTMLInputElement
+  //   fireEvent.change(inputElement2, {target: { value: "Test product name"}});
+  //   expect(inputElement2.value).toBe("Test product name");
+
+  //   const submitElement = screen.getByText(/submit/i);
+  //   const keyDownEvent = createEvent.click(submitElement);
+  //   fireEvent.click(keyDownEvent);
+  //   expect(keyDownEvent.defaultPrevented).toBeTruthy;
+
+  // });
+
+
 
 });

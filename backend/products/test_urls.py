@@ -12,4 +12,4 @@ class URLTests(TestCase):
   def test_adminloginpage(self):
     response = self.client.get('/admin/login/?next=/admin/')
     self.assertEqual(response.status_code, 200)
-
+    

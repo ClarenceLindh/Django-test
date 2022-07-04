@@ -3,8 +3,7 @@ import { useAppSelector, useAppDispatch } from "../../store/hooks";
 import { fetchProducts } from "../productsSlice";
 import DeleteProduct from "../DeleteProduct/DeleteProduct";
 import UpdateProduct from "../UpdateProducts/UpdateProduct";
-import ProductCard from "../ProductCard/ProductCard";
-
+import ProductCard from "../ProductCard/ProductCard"
 
 const ListProducts = () => {
   const products = useAppSelector((state) => state.products.products);
