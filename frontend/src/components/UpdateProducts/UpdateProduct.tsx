@@ -2,13 +2,13 @@ import { useState } from "react";
 import { useAppDispatch } from "../../store/hooks";
 import { updateProductReducer, ProductObject } from "../productsSlice";
 
-const UpdateProduct = (product: ProductObject)  => {
+const UpdateProduct = (product: ProductObject) => {
   const dispatch = useAppDispatch();
 
-  const [productName, setProductName] = useState<string>("");
-  const [productPrice, setProductPrice] = useState<number>(0);
+  const [productName, setProductName] = useState<string>(product.product.name);
+  const [productPrice, setProductPrice] = useState<number>(product.product.price);
   const [updateStatus, setUpdateStatus] = useState<boolean>(false);
-  const [errorMessage, setErrorMessage] = useState<string>("")
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   const handleUpdateSubmit = () => {
     if (productName && productPrice) {
@@ -18,13 +18,12 @@ const UpdateProduct = (product: ProductObject)  => {
           name: productName!,
           price: productPrice!,
         })
-        );
-        setUpdateStatus(!updateStatus)
-        setErrorMessage("")
-      }
-    else {
-      setErrorMessage("Fill in name and price")
-    } 
+      );
+      setUpdateStatus(!updateStatus);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Fill in name and price");
+    }
   };
 
   const toggleUpdate = () => {
@@ -49,7 +48,7 @@ const UpdateProduct = (product: ProductObject)  => {
       {updateStatus && (
         <div>
           New values:
-          <form>
+          <form onSubmit={handleUpdateSubmit}>
             <input
               className="Input Name"
               type="text"
@@ -64,19 +63,15 @@ const UpdateProduct = (product: ProductObject)  => {
               required={true}
               onChange={(e) => handlePriceChange(e.target.valueAsNumber)}
             />
+            <button className="Button" onClick={handleUpdateSubmit}>
+              Submit changes
+            </button>
           </form>
-          <button className="Button" onClick={handleUpdateSubmit}>
-            Submit changes
-          </button>
-          {errorMessage.length !== 0 && (
-            <div>
-              {errorMessage}
-            </div>
-          )}
+          {errorMessage.length !== 0 && <div>{errorMessage}</div>}
         </div>
       )}
     </div>
   );
-}
+};
 
 export default UpdateProduct;

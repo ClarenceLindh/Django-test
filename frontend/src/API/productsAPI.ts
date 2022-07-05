@@ -57,7 +57,6 @@ export async function updateProduct(product: Product) {
       auth: { username: "admin", password: "Haha!123" },
     })
     .then((response) => {
-      console.log("updateProduct", response);
       return response;
     })
     return res;

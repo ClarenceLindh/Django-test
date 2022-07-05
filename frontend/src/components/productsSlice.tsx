@@ -43,7 +43,7 @@ export const fetchProducts = createAsyncThunk(
   }
 );
 
-const handleSort = (state: WritableDraft<ProductsState>) => {
+export const sortByName = (state: WritableDraft<ProductsState>) => {
   state.products.sort((a: any, b: any) =>
     a.name > b.name ? 1 : b.name > a.name ? -1 : 0
   );
@@ -57,14 +57,14 @@ export const productsSlice = createSlice({
       postProduct(action.payload);
       state.products = [...state.products, action.payload];
       fetchProducts();
-      handleSort(state);
+      sortByName(state);
     },
     deleteProductReducer: (state, action) => {
       deleteProduct(action.payload.id);
       state.products = [
         ...state.products.filter((i) => i.id !== action.payload.id),
       ];
-      handleSort(state);
+      sortByName(state);
     },
     updateProductReducer: (state, action) => {
       updateProduct(action.payload);
@@ -72,7 +72,7 @@ export const productsSlice = createSlice({
         ...state.products.filter((i) => i.id !== action.payload.id),
       ];
       state.products = [...state.products, action.payload];
-      handleSort(state);
+      sortByName(state);
     },
   },
   extraReducers: (builder) => {

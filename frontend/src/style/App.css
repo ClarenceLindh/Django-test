@@ -10,6 +10,12 @@
   font-size: calc(10px + 2vmin);
 }
 
+h1 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100vw;
+}
+
 .Products {
   display: flex;
   flex-wrap: wrap;
@@ -52,7 +58,7 @@
   top: 0px;
   transition: 300ms ease all;
   cursor: pointer;
-  background-color: #000000;
+  background-color: #414141;
   color: #fff;
   border: none;
   text-transform: uppercase;
@@ -75,7 +81,7 @@
   top: 0px;
   transition: 300ms ease all;
   cursor: pointer;
-  background-color: #000000;
+  background-color: #414141;
   color: #fff;
   border: none;
   text-transform: uppercase;
@@ -95,7 +101,7 @@
   border-radius: 5px;
   transition: 300ms ease all;
   cursor: pointer;
-  background-color: #313131;
+  background-color: #414141;
   color: #fff;
   border: none;
   text-transform: uppercase;
@@ -121,6 +127,7 @@
   background-color: rgb(230, 230, 230); 
   color: rgb(0, 0, 0);
   border: 5px solid rgb(189, 189, 189);
+  outline: 0;
 }
 
 .Input:hover {
