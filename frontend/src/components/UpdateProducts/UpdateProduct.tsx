@@ -14,9 +14,9 @@ const UpdateProduct = (product: ProductObject)  => {
     if (productName && productPrice) {
       dispatch(
         updateProductReducer({
-          id: product.product.id,
-          name: productName,
-          price: productPrice,
+          id: product.product.id!,
+          name: productName!,
+          price: productPrice!,
         })
         );
         setErrorMessage("")
@@ -28,8 +28,8 @@ const UpdateProduct = (product: ProductObject)  => {
 
   const toggleUpdate = () => {
     setUpdateStatus(!updateStatus);
-    setProductName(product.product.name);
-    setProductPrice(product.product.price);
+    setProductName(product.product.name!);
+    setProductPrice(product.product.price!);
   };
 
   const handleNameChange = (e: string) => {

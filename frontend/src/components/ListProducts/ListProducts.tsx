@@ -1,14 +1,14 @@
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../../store/hooks";
-import { fetchProducts } from "../productsSlice";
+import { fetchProducts, Product } from "../productsSlice";
 import DeleteProduct from "../DeleteProduct/DeleteProduct";
 import UpdateProduct from "../UpdateProducts/UpdateProduct";
 import ProductCard from "../ProductCard/ProductCard"
 
 const ListProducts = () => {
-  const products = useAppSelector((state) => state.products.products);
+  const products = useAppSelector<Product[]>((state) => state.products.products);
   const dispatch = useAppDispatch();
-  const status = useAppSelector((state) => state.products.status);
+  const status = useAppSelector<string>((state) => state.products.status);
 
   useEffect(() => {
     if (status === "idle") {

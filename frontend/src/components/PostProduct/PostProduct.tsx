@@ -11,8 +11,8 @@ export const PostProduct = () => {
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(addProductReducer({
-      name: productName as string,
-      price: productPrice as string
+      name: productName! as string,
+      price: productPrice! as string
     }))
   }
 
