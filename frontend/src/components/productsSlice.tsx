@@ -57,7 +57,6 @@ export const productsSlice = createSlice({
       postProduct(action.payload);
       state.products = [...state.products, action.payload];
       fetchProducts();
-      console.log(state);
       handleSort(state);
     },
     deleteProductReducer: (state, action) => {
