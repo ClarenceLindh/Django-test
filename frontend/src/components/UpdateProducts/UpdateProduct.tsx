@@ -19,6 +19,7 @@ const UpdateProduct = (product: ProductObject)  => {
           price: productPrice!,
         })
         );
+        setUpdateStatus(!updateStatus)
         setErrorMessage("")
       }
     else {

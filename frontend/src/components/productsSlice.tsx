@@ -1,6 +1,12 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, isRejected } from "@reduxjs/toolkit";
 import { RootState } from "../store/store";
-import { deleteProduct, getAllProducts, postProduct, updateProduct } from "../API/productsAPI";
+import {
+  deleteProduct,
+  getAllProducts,
+  postProduct,
+  updateProduct,
+} from "../API/productsAPI";
+import { WritableDraft } from "immer/dist/internal";
 
 export interface Product {
   id: number;
@@ -30,9 +36,18 @@ export const fetchProducts = createAsyncThunk(
   "products/getAllProducts",
   async () => {
     const response = await getAllProducts();
-    return response;
+
+    return response.sort((a: any, b: any) =>
+      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+    );
   }
 );
+
+const handleSort = (state: WritableDraft<ProductsState>) => {
+  state.products.sort((a: any, b: any) =>
+    a.name > b.name ? 1 : b.name > a.name ? -1 : 0
+  );
+};
 
 export const productsSlice = createSlice({
   name: "products",
@@ -42,15 +57,23 @@ export const productsSlice = createSlice({
       postProduct(action.payload);
       state.products = [...state.products, action.payload];
       fetchProducts();
+      console.log(state);
+      handleSort(state);
     },
     deleteProductReducer: (state, action) => {
       deleteProduct(action.payload.id);
-      state.products = [...state.products.filter(i => i.id !== action.payload.id)];
+      state.products = [
+        ...state.products.filter((i) => i.id !== action.payload.id),
+      ];
+      handleSort(state);
     },
     updateProductReducer: (state, action) => {
       updateProduct(action.payload);
-      state.products = [...state.products.filter(i => i.id !== action.payload.id)];
-
+      state.products = [
+        ...state.products.filter((i) => i.id !== action.payload.id),
+      ];
+      state.products = [...state.products, action.payload];
+      handleSort(state);
     },
   },
   extraReducers: (builder) => {
