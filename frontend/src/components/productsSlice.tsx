@@ -12,7 +12,7 @@ export interface Product {
   id: number;
   name: string;
   price: number;
-}
+};
 
 export interface ProductObject {
   product: {
@@ -20,7 +20,7 @@ export interface ProductObject {
     name: string;
     price: number;
   };
-}
+};
 
 interface ProductsState {
   products: Product[];
@@ -37,14 +37,14 @@ export const fetchProducts = createAsyncThunk(
   async () => {
     const response = await getAllProducts();
 
-    return response.sort((a: any, b: any) =>
+    return response.sort((a: Product, b: Product) =>
       a.name > b.name ? 1 : b.name > a.name ? -1 : 0
     );
   }
 );
 
 export const sortByName = (state: WritableDraft<ProductsState>) => {
-  state.products.sort((a: any, b: any) =>
+  state.products.sort((a: Product, b: Product) =>
     a.name > b.name ? 1 : b.name > a.name ? -1 : 0
   );
 };
