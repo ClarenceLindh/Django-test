@@ -117,8 +117,8 @@ describe('Update poducts', () => {
     const inputElement = screen.getByDisplayValue(/test product/i) as HTMLInputElement
     fireEvent.change(inputElement, {target: {value: ""}});
     const submitButtonElement = screen.getByRole("button", { name: "Submit changes"});
-    fireEvent.click(submitButtonElement)
-    const errorMessage = screen.getByText(/fill in name and price/i)
+    fireEvent.click(submitButtonElement);
+    const errorMessage = screen.getByText(/fill in name and price/i);
     expect(errorMessage).toBeInTheDocument();
   });
   

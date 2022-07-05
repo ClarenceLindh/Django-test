@@ -5,10 +5,10 @@ import { updateProductReducer, ProductObject } from "../productsSlice";
 const UpdateProduct = (product: ProductObject)  => {
   const dispatch = useAppDispatch();
 
-  const [productName, setProductName] = useState("");
-  const [productPrice, setProductPrice] = useState(0);
-  const [updateStatus, setUpdateStatus] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("")
+  const [productName, setProductName] = useState<string>("");
+  const [productPrice, setProductPrice] = useState<number>(0);
+  const [updateStatus, setUpdateStatus] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("")
 
   const handleUpdateSubmit = () => {
     if (productName && productPrice) {

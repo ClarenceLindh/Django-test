@@ -5,14 +5,14 @@ import { addProductReducer } from "../productsSlice";
 export const PostProduct = () => {
   const dispatch = useAppDispatch();
   
-  const [productName, setProductName] = useState("");
-  const [productPrice, setProductPrice] = useState("");
+  const [productName, setProductName] = useState<string>("");
+  const [productPrice, setProductPrice] = useState<string>("");
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     dispatch(addProductReducer({
-      name: productName,
-      price: productPrice
+      name: productName as string,
+      price: productPrice as string
     }))
   }
 
