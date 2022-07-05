@@ -10,7 +10,7 @@ export async function getAllProducts() {
       .then((response) => {
         return response.data.results;
       });
-      console.log(res)
+      console.log("Response", res)
     return res;
   } catch (error) {
     console.log(error);
